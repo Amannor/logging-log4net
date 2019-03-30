@@ -42,9 +42,9 @@ namespace log4net.Util
 	/// <author>Nicko Cadell</author>
 	/// <author>Gert Driesen</author>
 #if NETCF
-	public class ReadOnlyPropertiesDictionary : IDictionary
+	public class ReadOnlyPropertiesDictionary : MarshalByRefObject, IDictionary
 #else
-	[Serializable] public class ReadOnlyPropertiesDictionary : ISerializable, IDictionary
+	[Serializable] public class ReadOnlyPropertiesDictionary : MarshalByRefObject, ISerializable, IDictionary
 #endif
 	{
 		#region Private Instance Fields
