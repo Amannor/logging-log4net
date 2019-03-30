@@ -26,6 +26,20 @@ Download link: http://nant.sourceforge.net/
 7) Run "build.cmd compile-all"
 
 8) The compiled artifacts are in the project folder under "...\bin\net\..."
+
+Further details
+===============
+(i) The bug I originally had to solve was in the project I was assigend to (it was an ASP.NET MVC one).
+The logical context variables were assigned (via an in-house log4net adapter) in the function Application_AcquireRequestState(/**/) (in  Global.asax.cs) and were later retrieved in the code that actually did the logic (e.g the controllers, the BL \ DAL layer code etc.). There the variables were sometimes non-existent (their value was NULL).
+
+After a long, tedious & nerve-wracking debugging process it was eventually understood that the logical context is lost due to how the MVC manages its thread-pool. The solution was to also assign the values (to the logical context) in each one of the controllers (they all inherited from a base controller so it wasn't a hassle, code wise).
+
+A blog post that a colleague of mine found and proved to be extremly helpful:
+http://piers7.blogspot.com/2005/11/threadstatic-callcontext-and_02.html
+
+(ii) For Logical Context in .NET:
+https://docs.microsoft.com/en-us/dotnet/api/system.runtime.remoting.messaging.logicalcallcontext?view=netframework-4.7.2
+
 ****************************************************************************************************************************************
 
 * Hereinafter is the original README text *
