@@ -38,7 +38,7 @@ SET NANTEXE_PATH=nant.exe
 IF NOT ERRORLEVEL 1 goto FoundNAnt
 
 REM Try hard coded path for NAnt
-SET NANTEXE_PATH=C:\Program Files\NAnt\nant-0.85\bin\nant.exe
+SET NANTEXE_PATH=C:\Program Files\NAnt\nant-0.92\bin\nant.exe
 "%NANTEXE_PATH%" -help >NUL: 2>NUL:
 IF NOT ERRORLEVEL 1 goto FoundNAnt
 
