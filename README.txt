@@ -8,12 +8,12 @@ The reason I fixed it in this old version is because that's the legacy code that
 - The bug, in a nutshell, is a serializationException that occurred due to an assignment of value to log4net.logicalthreadcontext. The reason is that the same object that log4net are using can't switch successfully between AppDomains. 
 - The solution is to have that object inherit from MarshalByRefObject
 
-To compile this code (on a Windows compouter)
-=============================================
+To compile this code (on a Windows computer)
+============================================
 1) Download the compilation mechanism called nant. It can be downloaded from this link (the version I used is 0.92 but it doesn't really matter). If for some reason the file can't be downloaded, I've added it to this branch under the folder "_AuxiliaryFolderNotPartOfOriginalProject".
 Download link: http://nant.sourceforge.net/
 
-2) Right click on the downloaded zip file, choose "Properties" -> "General" -> Check the cbox tha reads "Unblock".
+2) Right click on the downloaded zip file, choose "Properties" -> "General" -> Check the box tha reads "Unblock".
 
 3) Extract the downloaded zip file to c:\Program Files\NAnt
 
